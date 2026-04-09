@@ -92,6 +92,7 @@
   <button id="sim" class="btn">Sim</button>
   <button id="nao" class="btn">Não</button>
 
+
   <script>
     const naoBtn = document.getElementById("nao");
     const simBtn = document.getElementById("sim");
@@ -120,6 +121,17 @@
     simBtn.addEventListener("click", () => {
   window.location.href = "sim.html?play=true";
 });
+
+simBtn.addEventListener("click", () => {
+  const musica = new Audio("musica.mp3");
+  musica.play().then(() => {
+    window.location.href = "sim.html";
+  }).catch(err => {
+    console.log("Erro ao iniciar música:", err);
+    window.location.href = "sim.html";
+  });
+});
+
 
   </script>
 </body>
