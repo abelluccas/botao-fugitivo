@@ -10,8 +10,9 @@
   <button id="sim" class="btn">Sim</button>
   <button id="nao" class="btn">Não</button>
 
-  <script>
+ <script>
     const naoBtn = document.getElementById("nao");
+    const simBtn = document.getElementById("sim"); // <-- faltava isso
 
     // posição inicial
     naoBtn.style.left = "200px";
@@ -29,6 +30,12 @@
       naoBtn.style.left = novaEsquerda + "px";
       naoBtn.style.top = novaTopo + "px";
     });
-  </script>
+
+    // botão "Sim" abre nova página
+    simBtn.addEventListener("click", () => {
+      window.location.href = "sim.html";
+    });
+</script>
+  
 </body>
 </html>
