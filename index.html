@@ -2,28 +2,109 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Botão Fugitivo</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pega nunka?</title>
+  <style>
+    /* Configuração geral */
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    /* Imagem padrão (PC) */
+    body {
+      background-image: url('imagem-pc.jpg'); /* coloque aqui sua imagem para desktop */
+    }
+
+    /* Imagem para mobile */
+    @media (max-width: 768px) {
+      body {
+        background-image: url('imagem-mobile.png'); /* coloque aqui sua imagem para mobile */
+      }
+    }
+
+    h1 {
+      color: #fff;
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 40px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    }
+
+    .btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      display: inline-block;
+      width: auto;
+      max-width: 150px;
+      text-align: center;
+    }
+
+    #sim {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    #nao {
+      background-color: #f44336;
+      color: white;
+      position: absolute;
+    }
+
+    /* Responsividade dos botões */
+    @media (max-width: 768px) {
+      .btn {
+        font-size: 14px;
+        padding: 8px 16px;
+        max-width: 120px;
+      }
+      h1 {
+        font-size: 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .btn {
+        font-size: 12px;
+        padding: 6px 12px;
+        max-width: 100px;
+      }
+      h1 {
+        font-size: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>BORA JOGAR UM FREE FIRE?</h1>
+  <h1>bora jogar um free fire?</h1>
   <button id="sim" class="btn">Sim</button>
   <button id="nao" class="btn">Não</button>
 
- <script>
+  <script>
     const naoBtn = document.getElementById("nao");
-    const simBtn = document.getElementById("sim"); // <-- faltava isso
+    const simBtn = document.getElementById("sim");
 
-    // posição inicial
+    // posição inicial do "Não"
     naoBtn.style.left = "200px";
     naoBtn.style.top = "200px";
 
+    // botão fugitivo
     naoBtn.addEventListener("mouseover", () => {
-      // largura e altura da janela
       const largura = window.innerWidth - naoBtn.offsetWidth;
       const altura = window.innerHeight - naoBtn.offsetHeight;
 
-      // posição aleatória
       const novaEsquerda = Math.floor(Math.random() * largura);
       const novaTopo = Math.floor(Math.random() * altura);
 
@@ -35,7 +116,12 @@
     simBtn.addEventListener("click", () => {
       window.location.href = "sim.html";
     });
-</script>
-  
+
+    simBtn.addEventListener("click", () => {
+  window.location.href = "sim.html?play=true";
+});
+
+  </script>
 </body>
 </html>
+

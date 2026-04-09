@@ -2,30 +2,62 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resposta</title>
   <style>
     body {
+      display: flex;
+      justify-content: center;   /* centraliza horizontalmente */
+      align-items: center;       /* centraliza verticalmente */
+      flex-direction: column;
+      height: 100vh;
+      margin: 0;
+      background-color: #e0ffe0;
       font-family: Arial, sans-serif;
       text-align: center;
-      margin-top: 100px;
-      background-color: #e0ffe0;
-      background-image: url(download.jpg);
+      background: url(download.jpg) center center no-repeat;
       background-size: cover;
-      background-position: center center;
-      background-attachment: fixed;
-      background-position: no-repeat;
     }
+
     h1 {
-      color: #ffffff;
-      font-size: 200px;
+      color: #4CAF50;
+      font-size: 32px;
+      margin: 20px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 20px;
+      }
     }
   </style>
 </head>
 <body>
   <h1>Assim que eu gosto!</h1>
 
-  <audio autoplay loop>
-    <source src="Desktop 2026.04.09 - 15.25.34.03.DVR (audio-extractor.net).mp3" type="audio/mp3">
+  <!-- Música -->
+  <audio id="musica" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
   </audio>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("play") === "true") {
+        const musica = document.getElementById("musica");
+        musica.play().catch(err => {
+          console.log("Autoplay bloqueado, precisa de interação:", err);
+        });
+      }
+    });
+  </script>
 </body>
 </html>
