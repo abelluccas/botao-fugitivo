@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      background-image: url(freefire_easter_background_21x9_v3.jpg);
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-color: #f0e68c; /* fallback para navegadores que não suportam a imagem de fundo */
+    }
+
+    .btn {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin: 20px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+    }
+
+    #sim {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    #nao {
+      background-color: #f44336;
+      color: white;
+      position: absolute; /* necessário para mover */
+      top: 50%; /* centraliza verticalmente */}

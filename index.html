@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Botão Fugitivo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>BORA JOGAR UM FREE FIRE?</h1>
+  <button id="sim" class="btn">Sim</button>
+  <button id="nao" class="btn">Não</button>
+
+  <script>
+    const naoBtn = document.getElementById("nao");
+
+    // posição inicial
+    naoBtn.style.left = "200px";
+    naoBtn.style.top = "200px";
+
+    naoBtn.addEventListener("mouseover", () => {
+      // largura e altura da janela
+      const largura = window.innerWidth - naoBtn.offsetWidth;
+      const altura = window.innerHeight - naoBtn.offsetHeight;
+
+      // posição aleatória
+      const novaEsquerda = Math.floor(Math.random() * largura);
+      const novaTopo = Math.floor(Math.random() * altura);
+
+      naoBtn.style.left = novaEsquerda + "px";
+      naoBtn.style.top = novaTopo + "px";
+    });
+  </script>
+</body>
+</html>
